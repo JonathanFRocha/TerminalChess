@@ -9,6 +9,7 @@ namespace terminal_chess
         {
             Board board = new Board(8, 8);
 
+            Screen.ShowBoard(board);
             Console.ReadLine();
         }
     }
