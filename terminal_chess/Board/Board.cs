@@ -24,10 +24,42 @@ namespace board
             return Pieces[row, column];
         }
 
+        public Piece piece(Position pos)
+        {
+            return Pieces[pos.Row, pos.Column];
+        }
+
+        public bool ThereIsAPiece(Position pos)
+        {
+            ValidatePosition(pos);
+            return piece(pos) != null;
+        }
+
         public void InsertPiece(Piece p, Position pos)
         {
+            if (ThereIsAPiece(pos))
+            {
+                throw new BoardException("There is a piece in this position");
+            }
             Pieces[pos.Row, pos.Column] = p;
             p.position = pos;
+        }
+
+        public bool ValidPosition(Position pos)
+        {
+            if(pos.Row < 0 || pos.Row >=Rows || pos.Column < 0 || pos.Column >= Columns)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void ValidatePosition(Position pos)
+        {
+            if (!ValidPosition(pos))
+            {
+                throw new BoardException("Invalid Position!");
+            }
         }
     }
 }

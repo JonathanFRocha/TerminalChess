@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board\Board.cs" />
+    <Compile Include="Board\BoardException.cs" />
     <Compile Include="Board\Color.cs" />
     <Compile Include="Board\Piece.cs" />
     <Compile Include="Board\Position.cs" />
