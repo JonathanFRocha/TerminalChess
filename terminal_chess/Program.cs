@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Board;
 
 namespace terminal_chess
 {
@@ -10,6 +7,11 @@ namespace terminal_chess
     {
         static void Main(string[] args)
         {
+            Position position;
+
+            position = new Position(3, 4);
+
+            Console.WriteLine(position);
         }
     }
 }
