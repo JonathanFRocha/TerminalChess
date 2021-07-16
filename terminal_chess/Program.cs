@@ -12,14 +12,10 @@ namespace terminal_chess
 
             try
             {
-                Board board = new Board(8, 8);
+                ChessMatch match = new ChessMatch();
 
-                board.InsertPiece(new Tower(board, Color.Black), new Position(0, 0));
-                board.InsertPiece(new Tower(board, Color.Black), new Position(1, 3));
-                board.InsertPiece(new King(board, Color.Black), new Position(2, 4));
 
-                board.InsertPiece(new King(board, Color.White), new Position(3, 6));
-                Screen.ShowBoard(board);
+                Screen.ShowBoard(match.Board);
             }
             catch (BoardException e)
             {

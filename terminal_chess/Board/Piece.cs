@@ -14,5 +14,10 @@
             this.color = color;
             QtyMoves = 0;
         }
+
+        public void incrementMovesQty()
+        {
+            QtyMoves += 1;
+        }
     }
 }

@@ -29,12 +29,6 @@ namespace board
             return Pieces[pos.Row, pos.Column];
         }
 
-        public bool ThereIsAPiece(Position pos)
-        {
-            ValidatePosition(pos);
-            return piece(pos) != null;
-        }
-
         public void InsertPiece(Piece p, Position pos)
         {
             if (ThereIsAPiece(pos))
@@ -43,6 +37,24 @@ namespace board
             }
             Pieces[pos.Row, pos.Column] = p;
             p.position = pos;
+        }
+
+        public Piece RetrivePiece (Position pos)
+        {
+            if (piece(pos) == null)
+            {
+                return null;
+            }
+            Piece aux = piece(pos);
+            aux.position = null;
+            Pieces[pos.Row, pos.Column] = null;
+            return aux;
+        }
+
+        public bool ThereIsAPiece(Position pos)
+        {
+            ValidatePosition(pos);
+            return piece(pos) != null;
         }
 
         public bool ValidPosition(Position pos)
