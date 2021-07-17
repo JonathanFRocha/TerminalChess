@@ -20,6 +20,12 @@
             QtyMoves += 1;
         }
 
+        public bool HasAtLeastOneMove()
+        {
+            bool[,] mat = possibleMoves();
+
+        }
+
         public abstract bool[,] possibleMoves();
     }
 }

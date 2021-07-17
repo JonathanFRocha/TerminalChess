@@ -7,8 +7,8 @@ namespace Chess
     {
         public Board Board { get; private set; }
         public bool Finished { get; private set; }
-        private int Turn;
-        private Color CurrentPlayer;
+        public int Turn { get; private set; }
+        public Color CurrentPlayer { get; private set; }
 
         public ChessMatch()
         {
@@ -26,6 +26,24 @@ namespace Chess
             Piece capturedPiece = Board.RetrivePiece(destiny);
             Board.InsertPiece(p, destiny);
 
+        }
+
+        public void executeTurn (Position origin, Position destiny)
+        {
+            executeMove(origin, destiny);
+            Turn += 1;
+            ChangePlayer();
+        }
+
+        private void ChangePlayer()
+        {
+            if(CurrentPlayer == Color.White)
+            {
+                CurrentPlayer = Color.Black;
+            }else
+            {
+                CurrentPlayer = Color.White;
+            }
         }
 
         private void insertPieces()

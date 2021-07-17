@@ -19,17 +19,21 @@ namespace terminal_chess
                     Screen.ShowBoard(match.Board);
 
                     Console.WriteLine();
-                    Console.Write("Origem: ");
+                    Console.WriteLine("Turn: " + match.Turn);
+                    Console.WriteLine("Awaiting player: " + match.CurrentPlayer);
+
+                    Console.WriteLine();
+                    Console.Write("Origin: ");
                     Position origin = Screen.ReadChessPosition().ToPosition();
 
                     bool[,] possiblePositions = match.Board.piece(origin).possibleMoves();
                     Console.Clear();
                     Screen.ShowBoard(match.Board, possiblePositions);
 
-                    Console.Write("Destino: ");
+                    Console.Write("Destiny: ");
                     Position destiny = Screen.ReadChessPosition().ToPosition();
 
-                    match.executeMove(origin, destiny);
+                    match.executeTurn(origin, destiny);
                 }
 
                
