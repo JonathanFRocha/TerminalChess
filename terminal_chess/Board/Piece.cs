@@ -20,6 +20,11 @@
             QtyMoves += 1;
         }
 
+        public void DecrementQtyMoves()
+        {
+            QtyMoves -= 1;
+        }
+
         public bool HasAtLeastOneMove()
         {
             bool[,] mat = possibleMoves();

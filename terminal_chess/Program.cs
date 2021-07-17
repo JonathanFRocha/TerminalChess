@@ -35,7 +35,7 @@ namespace terminal_chess
                         Position destiny = Screen.ReadChessPosition().ToPosition();
                         match.ValidateDesinyPosition(origin, destiny);
 
-                        match.executeTurn(origin, destiny);
+                        match.ExecuteTurn(origin, destiny);
                     }
                     catch (BoardException e)
                     {
