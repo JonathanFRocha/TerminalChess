@@ -1,5 +1,6 @@
 ﻿using System;
 using board;
+using Chess;
 
 namespace terminal_chess
 {
@@ -36,6 +37,13 @@ namespace terminal_chess
                 Console.Write(piece);
                 Console.ForegroundColor = aux;
             }
+        }
+        public static PositionChess ReadChessPosition()
+        {
+            string s = Console.ReadLine();
+            char ch = s[0];
+            int column = int.Parse(s[1] + "");
+            return new PositionChess(ch, column);
         }
     }
 }

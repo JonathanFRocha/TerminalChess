@@ -13,9 +13,22 @@ namespace terminal_chess
             try
             {
                 ChessMatch match = new ChessMatch();
+                while (!match.Finished)
+                {
+                    Console.Clear();
+                    Screen.ShowBoard(match.Board);
 
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    Position origin = Screen.ReadChessPosition().ToPosition();
 
-                Screen.ShowBoard(match.Board);
+                    Console.Write("Destino: ");
+                    Position destiny = Screen.ReadChessPosition().ToPosition();
+
+                    match.executeMove(origin, destiny);
+                }
+
+               
             }
             catch (BoardException e)
             {

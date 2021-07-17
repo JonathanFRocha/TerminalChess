@@ -6,6 +6,7 @@ namespace Chess
     class ChessMatch
     {
         public Board Board { get; private set; }
+        public bool Finished { get; private set; }
         private int Turn;
         private Color CurrentPlayer;
 
@@ -14,6 +15,7 @@ namespace Chess
             Board = new Board(8,8);
             Turn = 0;
             CurrentPlayer = Color.White;
+            Finished = false;
             insertPieces();
         }
 
