@@ -18,11 +18,8 @@ namespace terminal_chess
                     try
                     {
                         Console.Clear();
-                        Screen.ShowBoard(match.Board);
-
-                        Console.WriteLine();
-                        Console.WriteLine("Turn: " + match.Turn);
-                        Console.WriteLine("Awaiting player: " + match.CurrentPlayer);
+                        Screen.PrintMatch(match);
+                       
 
                         Console.WriteLine();
                         Console.Write("Origin: ");
