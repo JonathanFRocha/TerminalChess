@@ -23,7 +23,23 @@
         public bool HasAtLeastOneMove()
         {
             bool[,] mat = possibleMoves();
+            for(int i = 0; i<board.Rows; i += 1)
+            {
+                for(int j = 0; j< board.Columns; j+=1)
+                {
+                    if (mat[i, j])
+                    {
+                        return true;
+                    }
+                }
+               
+            }
+            return false;
+        }
 
+        public bool CanMoveTo(Position pos)
+        {
+            return possibleMoves()[pos.Row, pos.Column];
         }
 
         public abstract bool[,] possibleMoves();

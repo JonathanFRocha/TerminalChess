@@ -15,28 +15,40 @@ namespace terminal_chess
                 ChessMatch match = new ChessMatch();
                 while (!match.Finished)
                 {
-                    Console.Clear();
-                    Screen.ShowBoard(match.Board);
+                    try
+                    {
+                        Console.Clear();
+                        Screen.ShowBoard(match.Board);
 
-                    Console.WriteLine();
-                    Console.WriteLine("Turn: " + match.Turn);
-                    Console.WriteLine("Awaiting player: " + match.CurrentPlayer);
+                        Console.WriteLine();
+                        Console.WriteLine("Turn: " + match.Turn);
+                        Console.WriteLine("Awaiting player: " + match.CurrentPlayer);
 
-                    Console.WriteLine();
-                    Console.Write("Origin: ");
-                    Position origin = Screen.ReadChessPosition().ToPosition();
+                        Console.WriteLine();
+                        Console.Write("Origin: ");
+                        Position origin = Screen.ReadChessPosition().ToPosition();
+                        match.ValidateOriginPosition(origin);
 
-                    bool[,] possiblePositions = match.Board.piece(origin).possibleMoves();
-                    Console.Clear();
-                    Screen.ShowBoard(match.Board, possiblePositions);
 
-                    Console.Write("Destiny: ");
-                    Position destiny = Screen.ReadChessPosition().ToPosition();
+                        bool[,] possiblePositions = match.Board.piece(origin).possibleMoves();
+                        Console.Clear();
+                        Screen.ShowBoard(match.Board, possiblePositions);
 
-                    match.executeTurn(origin, destiny);
+                        Console.Write("Destiny: ");
+                        Position destiny = Screen.ReadChessPosition().ToPosition();
+                        match.ValidateDesinyPosition(origin, destiny);
+
+                        match.executeTurn(origin, destiny);
+                    }
+                    catch (BoardException e)
+                    {
+                        Console.WriteLine("Board Exception: " + e.Message);
+                        Console.ReadLine();
+                    }
+                  
                 }
 
-               
+
             }
             catch (BoardException e)
             {
