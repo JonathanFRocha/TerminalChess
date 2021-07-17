@@ -44,6 +44,8 @@ namespace terminal_chess
                     }
                   
                 }
+                Console.Clear();
+                Screen.PrintMatch(match);
 
 
             }

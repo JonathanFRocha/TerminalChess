@@ -16,11 +16,19 @@ namespace terminal_chess
 
             Console.WriteLine();
             Console.WriteLine("Turn: " + match.Turn);
-            Console.WriteLine("Awaiting player: " + match.CurrentPlayer);
-            if (match.Check)
+            if (!match.Finished)
             {
-                Console.WriteLine("CHECK!");
+                Console.WriteLine("Awaiting player: " + match.CurrentPlayer);
+                if (match.Check)
+                {
+                    Console.WriteLine("CHECK!");
+                }
+            }else
+            {
+                Console.WriteLine("CHECKMATE!");
+                Console.WriteLine("Winner: " + match.CurrentPlayer);
             }
+
         }
 
         public static void PrintCapturedPieces(ChessMatch match)
