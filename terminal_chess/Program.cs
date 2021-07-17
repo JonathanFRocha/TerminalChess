@@ -22,6 +22,10 @@ namespace terminal_chess
                     Console.Write("Origem: ");
                     Position origin = Screen.ReadChessPosition().ToPosition();
 
+                    bool[,] possiblePositions = match.Board.piece(origin).possibleMoves();
+                    Console.Clear();
+                    Screen.ShowBoard(match.Board, possiblePositions);
+
                     Console.Write("Destino: ");
                     Position destiny = Screen.ReadChessPosition().ToPosition();
 
