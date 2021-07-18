@@ -13,7 +13,7 @@ namespace Chess
         public HashSet<Piece> Pieces;
         public HashSet<Piece> Captured;
         public bool Check { get; private set; }
-        public Piece vulneravelEnPassant { get; private set; }
+        public Piece VulnerableEnPassant { get; private set; }
 
         public ChessMatch()
         {
@@ -23,7 +23,7 @@ namespace Chess
             Finished = false;
             Check = false;
             Pieces = new HashSet<Piece>();
-            vulneravelEnPassant = null;
+            VulnerableEnPassant = null;
             Captured = new HashSet<Piece>();
             insertPieces();
         }
@@ -90,7 +90,13 @@ namespace Chess
                 ChangePlayer();
             }
 
-
+            Piece p = Board.piece(destiny);
+            
+            //#enpassant
+            if(p is Pawn && (destiny.Row == origin.Row -2 || destiny.Row == origin.Row + 2))
+            {
+                VulnerableEnPassant = p;
+            }
         }
 
         public void UndoMove(Position origin, Position destiny, Piece capturedPiece)

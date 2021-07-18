@@ -58,13 +58,13 @@ namespace Chess
                 // #jogadaespecial en passant
                 if (position.Row == 3)
                 {
-                    Position esquerda = new Position(position.Row, position.Column - 1);
-                    if (board.ValidPosition(esquerda) && EnemyExists(esquerda) && board.piece(esquerda) == Match.vulneravelEnPassant)
+                    Position left = new Position(position.Row, position.Column - 1);
+                    if (board.ValidPosition(left) && EnemyExists(left) && board.piece(left) == Match.VulnerableEnPassant)
                     {
-                        mat[esquerda.Row - 1, esquerda.Column] = true;
+                        mat[left.Row - 1, left.Column] = true;
                     }
                     Position direita = new Position(position.Row, position.Column + 1);
-                    if (board.ValidPosition(direita) && EnemyExists(direita) && board.piece(direita) == Match.vulneravelEnPassant)
+                    if (board.ValidPosition(direita) && EnemyExists(direita) && board.piece(direita) == Match.VulnerableEnPassant)
                     {
                         mat[direita.Row - 1, direita.Column] = true;
                     }
@@ -97,13 +97,13 @@ namespace Chess
                 // #jogadaespecial en passant
                 if (position.Row == 4)
                 {
-                    Position esquerda = new Position(position.Row, position.Column - 1);
-                    if (board.ValidPosition(esquerda) && EnemyExists(esquerda) && board.piece(esquerda) == Match.vulneravelEnPassant)
+                    Position left = new Position(position.Row, position.Column - 1);
+                    if (board.ValidPosition(left) && EnemyExists(left) && board.piece(left) == Match.VulnerableEnPassant)
                     {
-                        mat[esquerda.Row + 1, esquerda.Column] = true;
+                        mat[left.Row + 1, left.Column] = true;
                     }
                     Position direita = new Position(position.Row, position.Column + 1);
-                    if (board.ValidPosition(direita) && EnemyExists(direita) && board.piece(direita) == Match.vulneravelEnPassant)
+                    if (board.ValidPosition(direita) && EnemyExists(direita) && board.piece(direita) == Match.VulnerableEnPassant)
                     {
                         mat[direita.Row + 1, direita.Column] = true;
                     }
