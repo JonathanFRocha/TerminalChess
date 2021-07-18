@@ -13,6 +13,7 @@ namespace Chess
         public HashSet<Piece> Pieces;
         public HashSet<Piece> Captured;
         public bool Check { get; private set; }
+        public Piece vulneravelEnPassant { get; private set; }
 
         public ChessMatch()
         {
@@ -22,6 +23,7 @@ namespace Chess
             Finished = false;
             Check = false;
             Pieces = new HashSet<Piece>();
+            vulneravelEnPassant = null;
             Captured = new HashSet<Piece>();
             insertPieces();
         }
@@ -200,7 +202,7 @@ namespace Chess
 
         public void ValidateDesinyPosition(Position origin, Position destiny)
         {
-            if (!Board.piece(origin).CanMoveTo(destiny))
+            if (!Board.piece(origin).PossibleMove(destiny))
             {
                 throw new BoardException("Invalid Destination position!");
             }
